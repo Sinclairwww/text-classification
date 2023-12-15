@@ -28,18 +28,16 @@ category_labels = {
 
 def split_corpus():
     # original data directory
-    original_dataset_dir = "./CN_Corpus/SogouC.reduced/Reduced"
-    base_dir = "data/"
+    original_dataset_dir = "learn/CN_Corpus/SogouC.reduced/Reduced"
+    base_dir = "learn/data/"
+    train_dir = os.path.join(base_dir, "train")
+    test_dir = os.path.join(base_dir, "test")
 
     if os.path.exists(base_dir):
-        print("`data` seems already exist.")
-        return
+        shutil.rmtree(base_dir)
 
-    # make new folders
     os.mkdir(base_dir)
-    train_dir = os.path.join(base_dir, "train")
     os.mkdir(train_dir)
-    test_dir = os.path.join(base_dir, "test")
     os.mkdir(test_dir)
 
     # split corpus
